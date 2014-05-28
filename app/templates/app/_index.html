@@ -7,8 +7,10 @@
     <link href="lib.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
   </head>
-  <body ng-app="<%= _.slugify(appname) %>">
-    <div class="container" ng-view=""></div>
+  <body>
+    <div ng-app="<%= _.slugify(appname) %>">
+      <div class="container" ng-view="ng-view"></div>
+    </div>
     <script src="lib.js"></script>
     <script src="templates.js"></script>
     <script src="main.js"></script>
