@@ -18,8 +18,10 @@ angular.module('<%= _.slugify(appname) %>-main',['ngRoute'])
   })
   .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+      'NPM',
+      'Yeoman',
+      'bower',
+      'gulp',
+      'Proxly'
     ];
   });

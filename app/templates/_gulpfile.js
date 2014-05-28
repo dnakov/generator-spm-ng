@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var plugins = require("gulp-load-plugins")({lazy:false});
+var gulpBowerFiles = require('gulp-bower-files');
 
 gulp.task('scripts', function(){
     //combine all js files of the app
@@ -34,8 +35,9 @@ gulp.task('css', function(){
 
 gulp.task('vendorJS', function(){
     //concatenate vendor JS files
-    gulp.src(['!./bower_components/**/*.min.js',
-        './bower_components/**/*.js'])
+    // gulp.src(['!./bower_components/**/*.min.js',
+    //     './bower_components/**/*.js'])
+      gulpBowerFiles()
       /*
        * If you need the scripts to be loaded in a different order,
        * edit the array below
