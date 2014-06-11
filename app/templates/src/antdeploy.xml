@@ -1,0 +1,17 @@
+<project name="Salesforce Ant Deploy" default="deploy" xmlns:sf="antlib:com.salesforce">
+
+  <target name="deploy">
+    <sf:deploy
+      username="<%= options.deploy.username %>"
+      password="<%= options.deploy.password %>"
+      serverurl="<%= options.deploy.serverurl %>"
+      maxPoll="20"
+      pollWaitMillis="10000"
+      deployroot="./src"
+      checkonly="false"
+      runAllTests="false"
+      rollbackOnError="true">
+    </sf:deploy>
+  </target>
+
+</project>

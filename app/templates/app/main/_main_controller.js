@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('<%= _.slugify(appname) %>-main',['ngRoute'])
+angular.module('<%= appName %>-main',['ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

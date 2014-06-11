@@ -1,17 +1,20 @@
 {
-  "name": "spm-<%= _.slugify(appname) %>",
+  "name": "spm-<%= appName %>",
   "version": "0.0.0",
   "main": "main.js",
   "devDependencies": {
     "gulp": "^3.5.5",
-    "gulp-concat": "^2.1.7",
-    "gulp-clean": "^0.2.4",
-    "gulp-order": "^1.0.6",
-    "gulp-load-plugins": "^0.4.0",
     "gulp-angular-templatecache": "^1.1.0",
-    "gulp-connect": "^1.0.7",
     "gulp-bower-files": "^0.2.4",
+    "gulp-clean": "^0.2.4",
+    "gulp-concat": "^2.1.7",
+    "gulp-connect": "^1.0.7",
+    "gulp-filter": "^0.4.1",
+    "gulp-flatten": "0.0.2",
+    "gulp-load-plugins": "^0.4.0",
+    "gulp-order": "^1.0.6",
+    "gulp-util": "^2.2.14",
     "gulp-zip": "^0.3.4",
-    "gulp-util": "^2.2.14"
+    "gulp-coffee": "^2.0.0"
   }
 }

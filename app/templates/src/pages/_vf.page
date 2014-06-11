@@ -1,0 +1,19 @@
+<apex:page>
+
+  <head>
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"></meta>
+    <title><%= appName %></title>
+    <link href="{!URLFOR($Resource.<%= appName %>, 'styles/lib.css')}" rel="stylesheet"></link>
+    <link href="{!URLFOR($Resource.<%= appName %>, 'styles/main.css')}" rel="stylesheet"></link>
+  </head>
+  <body>
+    <div ng-app="<%= appName %>">
+      <div class="container-fluid" ng-view="ng-view"></div>
+    </div>
+    <script src="{!URLFOR($Resource.<%= appName %>, 'scripts/lib.js')}"></script>
+    <script src="{!URLFOR($Resource.<%= appName %>, 'scripts/templates.js')}"></script>
+    <script src="{!URLFOR($Resource.<%= appName %>, 'scripts/main.js')}"></script>
+  </body>
+
+</apex:page>
