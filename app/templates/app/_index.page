@@ -1,0 +1,19 @@
+<apex:page>
+  <apex:stylesheet value="{!URLFOR($Resource.<%= appName %>, 'styles/lib.css')}"></apex:stylesheet>
+  <apex:stylesheet value="{!URLFOR($Resource.<%= appName %>, 'styles/main.css')}"></apex:stylesheet>
+  <head>
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"></meta>
+    <title><%= appName %></title>
+  </head>
+  <body>
+    <div ng-app="<%= appName %>">
+      <div class="container" ng-view="ng-view"></div>
+    </div>
+    <apex:includescript value="{!URLFOR($Resource.<%= appName %>, 'scripts/lib.js')}"></apex:includescript>
+    <apex:includescript value="{!URLFOR($Resource.<%= appName %>, 'scripts/templates.js')}"></apex:includescript>
+    <apex:includescript value="{!URLFOR($Resource.<%= appName %>, 'scripts/main.js')}"></apex:includescript>
+    <c:ngForce></c:ngForce>
+  </body>
+
+</apex:page>

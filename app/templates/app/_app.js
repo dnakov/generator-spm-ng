@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('<%= _.slugify(appname) %>', [ 'ngRoute','<%= _.slugify(appname) %>-main','templates' ])
+angular.module('<%= appName %>', [ 'ngRoute','<%= appName %>-main','templates' ])
   .config(function ($routeProvider) {
     $routeProvider
       .otherwise({
@@ -8,7 +8,7 @@ angular.module('<%= _.slugify(appname) %>', [ 'ngRoute','<%= _.slugify(appname) 
       });
   });
 
-angular.module('<%= _.slugify(appname) %>-main',['ngRoute'])
+angular.module('<%= appName %>-main',['ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

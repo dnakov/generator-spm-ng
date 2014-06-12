@@ -25,11 +25,21 @@ var GulpNgGenerator = yeoman.generators.Base.extend({
     // replace it with a short and sweet description of your generator
     this.log(chalk.magenta('This generator will generate a web app project using gulp, bower and angularjs.'));
 
-    var prompts = [];
+     var prompts = [{
+        type: 'input',
+        name: 'appName',
+        message: 'Name of your app?',
+        default: this.appname.replace(/\s/g,'_').replace(/\-/g,'_')
+      }, {
+        type: 'confirm',
+        name: 'bootstrap',
+        message: 'Include Bootstrap?',
+        default: true
+      }];
 
     this.prompt(prompts, function (props) {
-      this.name = props.name;
-
+      this.appName = props.appName;
+      this.bootstrap = props.bootstrap;
       done();
     }.bind(this));
   },
@@ -41,6 +51,7 @@ var GulpNgGenerator = yeoman.generators.Base.extend({
     // this.copy('app/_app_controller.js','app/app_controller.js');
     // this.copy('app/_app_controller_test.js','app/app_controller_test.js');
     this.copy('app/_index.html','app/index.html');
+    this.copy('app/_index.page','app/' + this.appName + '.page');
     this.copy('_gitignore','.gitignore');
 
     // this.mkdir('app/components');
@@ -49,6 +60,7 @@ var GulpNgGenerator = yeoman.generators.Base.extend({
 
     // this.mkdir('app/main');
     this.copy('app/main/_main.html', 'app/views/main.html');
+
     // this.copy('app/main/_main_controller.js', 'app/views/main_controller.js');
     // this.copy('app/main/_main_controller_test.js', 'app/views/main_controller_test.js');
   },
