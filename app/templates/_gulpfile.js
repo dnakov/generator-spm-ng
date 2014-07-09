@@ -123,7 +123,7 @@ gulp.task('connect', plugins.connect.server({
 
 gulp.task('zip-staticresource', function () {
     return gulp.src('build/**/*')
-        .pipe(plugins.zip('<%= appName %>.zip'))
+        .pipe(plugins.zip('<%= appName %>.resource'))
         .pipe(gulp.dest('../src/staticresources'));
 });
 
