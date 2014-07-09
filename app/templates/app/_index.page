@@ -7,8 +7,10 @@
     <title><%= appName %></title>
   </head>
   <body>
-    <div ng-app="<%= appName %>">
-      <div class="container" ng-view="ng-view"></div>
+    <div id="sl" ng-app="<%= appName %>">
+      <div id="sl-body">
+        <div class="container" ng-view="ng-view"></div>
+      </div>
     </div>
     <apex:includescript value="{!URLFOR($Resource.<%= appName %>, 'scripts/lib.js')}"></apex:includescript>
     <apex:includescript value="{!URLFOR($Resource.<%= appName %>, 'scripts/templates.js')}"></apex:includescript>

@@ -8,7 +8,7 @@ angular.module('<%= appName %>', [ 'ngRoute','<%= appName %>-main','templates' ]
       });
   });
 
-angular.module('<%= appName %>-main',['ngRoute'])
+angular.module('<%= appName %>-main',['ngRoute', 'ngForce'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -16,7 +16,7 @@ angular.module('<%= appName %>-main',['ngRoute'])
         controller: 'MainCtrl'
       });
   })
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, vfr) {
     $scope.awesomeThings = [
       'NPM',
       'Yeoman',

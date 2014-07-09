@@ -122,13 +122,13 @@ gulp.task('connect', plugins.connect.server({
 }));
 
 gulp.task('zip-staticresource', function () {
-    return gulp.src('**/*', {cwd:path.join(process.cwd(), 'build')})
-        .pipe(plugins.zip('<%= appName %>.resource'))
+    return gulp.src('build/**/*')
+        .pipe(plugins.zip('<%= appName %>.zip'))
         .pipe(gulp.dest('../src/staticresources'));
 });
 
 gulp.task('meta-staticresource', function () {
-    return createFileFromString('<%= appName %>.resource-meta.xml', '<?xml version="1.0" encoding="UTF-8"?><StaticResource xmlns="http://soap.sforce.com/2006/04/metadata"><cacheControl>Private</cacheControl><contentType>application/zip</contentType></StaticResource>')
+    return createFileFromString('<%= appName %>.resource-meta.xml', '<?xml version="1.0" encoding="UTF-8"?><StaticResource xmlns="http://soap.sforce.com/2006/04/metadata"><cacheControl>Private</cacheControl><contentType>application/octet-stream</contentType></StaticResource>')
         .pipe(gulp.dest('../src/staticresources'));
 });
 
@@ -141,8 +141,10 @@ gulp.task('vf-page', function() {
   return gulp.src('./app/<%= appName %>.page')
           .pipe(gulp.dest('../src/pages'));
 });
+gulp.task('save-static-resource-zip', ['meta-staticresource','zip-staticresource']);
+gulp.task('save-vf-page', ['vf-page', 'meta-page']);
 
-gulp.task('save', ['zip-staticresource','meta-staticresource', 'meta-page', 'vf-page']);
+gulp.task('save', ['save-static-resource-zip','save-vf-page']);
 gulp.task('build', ['connect','scripts','templates','css','copy-index','vendorJS','vendorCSS','watch']);
 gulp.task('cleanAndBuild', ['cleanBuild'], function() {
   gulp.start('build');

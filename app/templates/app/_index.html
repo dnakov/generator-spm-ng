@@ -8,8 +8,10 @@
     <link href="styles/main.css" rel="stylesheet">
   </head>
   <body>
-    <div ng-app="<%= appName %>">
-      <div class="container" ng-view="ng-view"></div>
+    <div id="sl" ng-app="<%= appName %>">
+      <div id="sl-body">
+        <div class="container" ng-view="ng-view"></div>
+      </div>
     </div>
     <script src="scripts/lib.js"></script>
     <script src="scripts/templates.js"></script>
