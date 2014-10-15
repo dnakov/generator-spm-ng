@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('<%= appName %>', [ 'ngRoute','<%= appName %>-main','templates' ])
+angular.module('demoPage', [ 'ngRoute','demoPage-main','templates' ])
   .config(function ($routeProvider) {
     $routeProvider
       .otherwise({
@@ -8,7 +8,8 @@ angular.module('<%= appName %>', [ 'ngRoute','<%= appName %>-main','templates' ]
       });
   });
 
-angular.module('<%= appName %>-main',['ngRoute', 'ngForce'])
+
+angular.module('demoPage-main',['ngRoute', 'ngForce'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -16,7 +17,9 @@ angular.module('<%= appName %>-main',['ngRoute', 'ngForce'])
         controller: 'MainCtrl'
       });
   })
-  .controller('MainCtrl', function ($scope, vfr) {
+  .controller('MainCtrl', function ($scope, $injector) {
+    var vfr;
+
     $scope.awesomeThings = [
       'NPM',
       'Yeoman',
@@ -24,4 +27,12 @@ angular.module('<%= appName %>-main',['ngRoute', 'ngForce'])
       'gulp',
       'Proxly'
     ];
+
+    try {
+      vfr = $injector.get('vfr');
+      $scope.awesomeThings.push('Visualforce!');
+    } catch (e) {
+      $scope.awesomeThings.push('Localhost!');
+    }
+
   });
