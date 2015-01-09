@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('demoPage', [ 'ngRoute','demoPage-main','templates' ])
+angular.module('<%= appName %>', [ 'ngRoute','<%= appName %>-main','templates' ])
   .config(function ($routeProvider) {
     $routeProvider
       .otherwise({
@@ -9,15 +9,15 @@ angular.module('demoPage', [ 'ngRoute','demoPage-main','templates' ])
   });
 
 
-angular.module('demoPage-main',['ngRoute', 'ngForce'])
+angular.module('<%= appName %>-main',['ngRoute', 'ngForce'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainController'
       });
   })
-  .controller('MainCtrl', function ($scope, $injector) {
+  .controller('MainController', function ($scope, $injector) {
     var vfr;
 
     $scope.awesomeThings = [

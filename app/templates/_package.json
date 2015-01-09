@@ -5,7 +5,7 @@
   "devDependencies": {
     "gulp": "^3.5.5",
     "gulp-angular-templatecache": "^1.1.0",
-    "gulp-bower-files": "^0.2.4",
+    "main-bower-files": "^2.4.1",
     "gulp-clean": "^0.2.4",
     "gulp-concat": "^2.1.7",
     "gulp-connect": "^2.0.0",
