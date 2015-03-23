@@ -7,7 +7,7 @@
     <title><%= appName %></title>
   </head>
   <body>
-    <div id="sl" ng-app="<%= appName %>" ng-hint>
+    <div id="sl" ng-app="<%= appName %>">
       <div id="sl-body">
         <div class="container" ng-view="ng-view"></div>
       </div>
@@ -15,7 +15,6 @@
     <apex:includescript value="{!URLFOR($Resource.<%= appName %>, 'scripts/lib.js')}"></apex:includescript>
     <apex:includescript value="{!URLFOR($Resource.<%= appName %>, 'scripts/templates.js')}"></apex:includescript>
     <apex:includescript value="{!URLFOR($Resource.<%= appName %>, 'scripts/main.js')}"></apex:includescript>
-    <apex:includescript value="{!URLFOR($Resource.<%= appName %>, 'scripts/angular-hint.js')}"></apex:includescript>
     <c:ngForce></c:ngForce>
   </body>
 

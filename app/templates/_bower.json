@@ -3,7 +3,7 @@
   "main": "app.js",
   "version": "0.0.0",
   "authors": [
-    "daniel <daniel.nakov@gmail.com>"
+    "jessie <jessie@apollo.com.ph>"
   ],
   "license": "MIT",
   "private": true,
@@ -16,24 +16,10 @@
   ],
   "dependencies": {
     "jquery": "^2.1.1",
-    "angular": "^1.3.0",
-    "angular-route": "^1.3.0",
-    "angular-hint": "http://registry.npmjs.org/angular-hint/-/angular-hint-0.0.0.tgz",
+    "angular": "^1.2.16",
+    "angular-route": "^1.2.16",
     "ngForce": "https://github.com/dnakov/ngForce-1.git#master"<% if(bootstrap) { %>,
     "bootstrap": "https://bitbucket.org/silverline/ui-sl-bootstrap.git"<% } %>
-  },
-  "overrides": {
-    "angular-hint": {
-      "name": "angular-hint",
-      "version": "0.1.1",
-      "homepage": "http://registry.npmjs.org/angular-hint/-/angular-hint-0.0.0.tgz",
-      "authors": [
-        "eliorb <eliorb@codeoasis.com>"
-      ],
-      "license": "MIT",
-      "main": "dist/hint.js",
-      "ignore":true
-    }
   }
 }
 

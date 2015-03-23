@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var plugins = require("gulp-load-plugins")({lazy:false});
-var mainBowerFiles = require('main-bower-files');
+var gulpBowerFiles = require('gulp-bower-files');
 var gutil = require('gulp-util');
 var gulpFilter = require('gulp-filter');
 var path = require('path');
@@ -57,8 +57,8 @@ gulp.task('vendorJS', function(){
     //concatenate vendor JS files
     // gulp.src(['!./bower_components/**/*.min.js',
     //     './bower_components/**/*.js'])
-    gulp.src(mainBowerFiles())
-    .pipe(gulpFilter(['**/*.js', '!*angular-hint*']))
+    gulpBowerFiles()
+    .pipe(gulpFilter('**/*.js'))
       /*
        * If you need the scripts to be loaded in a different order,
        * edit the array below
@@ -78,16 +78,9 @@ gulp.task('vendorJS', function(){
     .pipe(gulp.dest('./build/scripts'));
 });
 
-gulp.task('angularHint', function() {
-  gulp.src(mainBowerFiles())
-  .pipe(gulpFilter('angular-hint/dist/hint.js'))
-  .pipe(plugins.concat('angular-hint.js'))
-  .pipe(gulp.dest('./build/scripts'))
-});
-
 gulp.task('vendorCSS', function(){
     //concatenate vendor CSS files
-    gulp.src(mainBowerFiles())
+    gulpBowerFiles()
     .pipe(gulpFilter('**/*.css'))
         .pipe(plugins.concat('lib.css'))
         .pipe(gulp.dest('./build/styles'));
@@ -95,7 +88,7 @@ gulp.task('vendorCSS', function(){
 
 gulp.task('vendorFonts', function(){
     //concatenate vendor CSS files
-    gulp.src(mainBowerFiles())
+    gulpBowerFiles()
     .pipe(gulpFilter('**/fonts/*'))
     .pipe(plugins.flatten())
     .pipe(gulp.dest('./build/fonts'));
@@ -122,13 +115,11 @@ gulp.task('watch',function(){
 
 });
 
-gulp.task('connect', function() {
-  plugins.connect.server({
+gulp.task('connect', plugins.connect.server({
     root: ['build'],
     port: 9000,
     livereload: true
-  })
-});
+}));
 
 gulp.task('zip-staticresource', function () {
     return gulp.src('build/**/*')
@@ -154,7 +145,7 @@ gulp.task('save-static-resource-zip', ['meta-staticresource','zip-staticresource
 gulp.task('save-vf-page', ['vf-page', 'meta-page']);
 
 gulp.task('save', ['save-static-resource-zip','save-vf-page']);
-gulp.task('build', ['connect','scripts','templates','css','copy-index','vendorJS','angularHint','vendorCSS','watch']);
+gulp.task('build', ['connect','scripts','templates','css','copy-index','vendorJS','vendorCSS','watch']);
 gulp.task('cleanAndBuild', ['cleanBuild'], function() {
   gulp.start('build');
 });
