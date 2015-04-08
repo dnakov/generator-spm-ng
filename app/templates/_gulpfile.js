@@ -115,11 +115,13 @@ gulp.task('watch',function(){
 
 });
 
-gulp.task('connect', plugins.connect.server({
-    root: ['build'],
-    port: 9000,
-    livereload: true
-}));
+gulp.task('connect', function() {
+  return plugins.connect.server({
+      root: ['build'],
+      port: 9000,
+      livereload: true
+   });
+});
 
 gulp.task('zip-staticresource', function () {
     return gulp.src('build/**/*')
